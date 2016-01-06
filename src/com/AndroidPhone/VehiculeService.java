@@ -3,27 +3,26 @@ package com.AndroidPhone;
 
 import java.util.List;
 
-
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-@Path("/RouteService")
+@Path("/VehiculeService")
 
+public class VehiculeService {
 
-
-public class RouteService {
-	
-	   RouteDao routeDao = new RouteDao();
+	   VehiculeDao vehiculeDao = new VehiculeDao();
 	   
 /********************************* GET METHODS ********************************/
 	   
-	   // ****** Récupération de toutes les routes ****** //
+	   // ****** Récupération de touts les véhicules ****** //
 	   @GET
-	   @Path("/routes")
+	   @Path("/vehicules")
 	   @Produces(MediaType.APPLICATION_XML)
-	   public List<Routes> getRoutes(){
-	      return routeDao.getAllRoutes();
+	   public List<Vehicule> getVehicules(){
+	      return vehiculeDao.getAllVehicules();
 	   }
+	
+	
 }
