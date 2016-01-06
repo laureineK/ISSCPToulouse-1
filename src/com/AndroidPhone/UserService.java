@@ -92,16 +92,22 @@ public class UserService {
 	   @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	   public String updateUser(@FormParam("id") int id,
 	      @FormParam("name") String name,
-	      @FormParam("address") String address,
-	      @FormParam("phoneNum") String phoneNum,
+	      @FormParam("addStreet") String addStreet,
+	      @FormParam("addPostal") String addPostal,
+	      @FormParam("addCity") String addCity,
+	      @FormParam("sexe") char sexe,
+	      @FormParam("telephone") String telephone,
+	      @FormParam("idVehicule") int idVehicule,
 	      @FormParam("isDriver") boolean isDriver,
+	      
 	      @Context HttpServletResponse servletResponse) throws IOException{
-		  User user = new User(id, name, address, phoneNum, isDriver);
-	      int result = userDao.updateUser(user);
-	      if(result == 1){
-	         return SUCCESS_RESULT;
-	      }
-	      return FAILURE_RESULT;
+		   
+			  User user = new User(id, name, addStreet, addPostal, addCity, sexe, telephone, idVehicule, isDriver);
+		      int result = userDao.updateUser(user);
+		      if(result == 1){
+		    	  return SUCCESS_RESULT;
+		      }
+		      return FAILURE_RESULT;
 	   }   
 	   
 /********************************* PUT METHODS ********************************/
@@ -111,11 +117,15 @@ public class UserService {
 	   @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	   public String createUser(@FormParam("id") int id,
 	      @FormParam("name") String name,
-	      @FormParam("address") String address,
-	      @FormParam("phoneNum") String phoneNum,
+	      @FormParam("addStreet") String addStreet,
+	      @FormParam("addPostal") String addPostal,
+	      @FormParam("addCity") String addCity,
+	      @FormParam("sexe") char sexe,
+	      @FormParam("telephone") String telephone,
+	      @FormParam("idVehicule") int idVehicule,
 	      @FormParam("isDriver") boolean isDriver,
 	      @Context HttpServletResponse servletResponse) throws IOException{
-	      User user = new User(id, name, address, phoneNum, isDriver);
+		   User user = new User(id, name, addStreet, addPostal, addCity, sexe, telephone, idVehicule, isDriver);
 	      int result = userDao.addUser(user);
 	      if(result == 1){
 	         return SUCCESS_RESULT;

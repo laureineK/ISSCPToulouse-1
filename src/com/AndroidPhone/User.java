@@ -1,8 +1,6 @@
 package com.AndroidPhone;
 
 import java.io.Serializable;
-
-
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -13,20 +11,84 @@ public class User implements Serializable {
 	private static final long serialVersionUID = 1l;
 	private int id;
 	private String name;
-	private String address;
-	private String phoneNum;
+	private String addStreet;
+	private String addPostal;
+	private String addCity;
+	private char sexe;
+	private String telephone;
+	private int idVehicule;
 	private boolean isDriver;
-	
+
+	//**************************************** CONSTRUCTEURs *********************************************//
 	public User(){}
 	
-	public User(int id, String name, String address, String phoneNum, boolean isDriver){
+	public User(int id, String name, String addStreet, String addPostal,String addCity, char sexe, String telephone, int idVehicule, boolean isDriver){
 		this.id = id;
 		this.name = name;
-		this.address = address;
-		this.phoneNum = phoneNum;
+		this.addStreet = addStreet;
+		this.addPostal = addPostal;
+		this.addCity = addCity;
+		this.sexe = sexe;
+		this.telephone = telephone;
+		this.idVehicule = idVehicule;
 		this.isDriver = isDriver;
 	}
 	
+	
+	// *********************************** GETTERS AND SETTERS **************************************//
+	
+	public String getAddStreet() {
+		return addStreet;
+	}
+
+	public void setAddStreet(String addStreet) {
+		this.addStreet = addStreet;
+	}
+
+	public String getAddPostal() {
+		return addPostal;
+	}
+
+	public void setAddPostal(String addPostal) {
+		this.addPostal = addPostal;
+	}
+
+	public String getAddCity() {
+		return addCity;
+	}
+
+	public void setAddCity(String addCity) {
+		this.addCity = addCity;
+	}
+
+	public char getSexe() {
+		return sexe;
+	}
+
+	public void setSexe(char sexe) {
+		this.sexe = sexe;
+	}
+
+	public String getTelephone() {
+		return telephone;
+	}
+
+	public void setTelephone(String telephone) {
+		this.telephone = telephone;
+	}
+
+	public int getIdVehicule() {
+		return idVehicule;
+	}
+
+	public void setIdVehicule(int idVehicule) {
+		this.idVehicule = idVehicule;
+	}
+
+	public void setDriver(boolean isDriver) {
+		this.isDriver = isDriver;
+	}
+
 	public int getId(){
 		return id;
 	}
@@ -45,24 +107,6 @@ public class User implements Serializable {
 		this.name = name;
 	}
 	
-	public String getAddress(){
-		return address;
-	}
-	
-	@XmlElement
-	public void setAddress(String address){
-		this.address = address;
-	}
-	
-	public String getPhoneNum(){
-		return phoneNum;
-	}
-	
-	@XmlElement
-	public void setPhoneNum(String phoneNum){
-		this.phoneNum = phoneNum;
-	}
-	
 
 	public boolean getIsDriver(){
 		return isDriver;
@@ -73,6 +117,11 @@ public class User implements Serializable {
 		this.isDriver = isDriver;
 	}
 
+	
+	
+//**************************************** AUTRES ***********************************************//	
+	
+	
 	   @Override
 	   public boolean equals(Object object){
 	      if(object == null){
@@ -83,8 +132,10 @@ public class User implements Serializable {
 	         User user = (User)object;
 	         if(id == user.getId()
 	            && name.equals(user.getName())
-	            && address.equals(user.getAddress())
-	            && phoneNum.equals(user.getPhoneNum())
+	            && addStreet.equals(user.getAddStreet())
+	            && addPostal.equals(user.getAddPostal())
+	            && addCity.equals(user.getAddCity())
+	            && telephone.equals(user.getTelephone())
 	         ){
 	            return true;
 	         }			
@@ -92,4 +143,6 @@ public class User implements Serializable {
 	      return false;
 	   }	
 
+	   
+	   
 }

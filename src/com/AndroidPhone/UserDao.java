@@ -2,6 +2,7 @@ package com.AndroidPhone;
 
 
 import java.io.File;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -26,14 +27,26 @@ public class UserDao {
 			      try {
 			         File file = new File("Users.dat");
 			         if (!file.exists()) {
-			            User user = new User(1, "Laureine FOUENANG", "135 Avenue Rangueil 31400 Toulouse", "0695587548", false);
-			            User user1 = new User(2, "Guy KENGNE", "43 Avenue de la Paix 94260 Fresnes", "0695847854", true);
-			            User user2 = new User(3, "EZECHIEL KENGNE","1 impasse Andre Campra 31000 Toulouse", "0695587123", false);
+			        	 
+			      
+			            User user = new User(1,"MARIE DUPONT", "27 Rue Jean Jaurés", "31400","Toulouse", 'F', "06062164978",2, true);
+			            User user1 = new User(2,"JEAN VALJEAN", "Place Vendôme", "31200","Toulouse", 'M',"0605040302",3, false);
+			            User user2 = new User(3,"SUZANNE SUZ", "87 Rue des Magiciens", "31400","Toulouse", 'F',"0561348250",4, true);
+			            User user3 = new User(4,"PATRICK PAT", "Grand Rond", "3100","Toulouse", 'M',"0531313131",5,true);
+			            User user4 = new User(5,"MARC MAR", "1 Impasse des cocotiers","31400","Toulouse", 'M',"0638854987",6,true);
+			            User user5 = new User(6,"PASCAL PAS", " 1 Impasse Debussy","31400","Toulouse", 'M',"0606063171",7,true);
+			            
+			             
 			            userList = new ArrayList<User>();
 			            userList.add(user);
 			            userList.add(user1);
 			            userList.add(user2);
-			            saveUserList(userList);		
+			            userList.add(user3);
+			            userList.add(user4);
+			            userList.add(user5);
+			            
+			            saveUserList(userList);	
+			            
 			         }
 			         else{
 			            FileInputStream fis = new FileInputStream(file);
@@ -143,6 +156,9 @@ public class UserDao {
 	      }
 	   }   
 	
+	
+	   
+	   
 	   
 	   
 	   
